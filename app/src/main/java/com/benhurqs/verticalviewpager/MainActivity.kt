@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         var adapter = SlideAdapter(supportFragmentManager)
         viewpager.adapter = adapter
+        viewpager.offscreenPageLimit = 3
         viewpager.setPageTransformer(true, CustomPageTransform())
 
     }

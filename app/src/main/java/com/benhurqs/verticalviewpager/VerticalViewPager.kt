@@ -1,26 +1,44 @@
 package com.benhurqs.verticalviewpager
 
+import android.app.Fragment
 import android.content.Context
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.RelativeLayout
+import android.widget.FrameLayout
+import kotlinx.android.synthetic.main.activity_main.view.*
+
 
 /**
  * Created by benhur.souza on 29/05/18.
  */
 
-class VerticalViewPager : ViewPager {
+class VerticalViewPager : ViewPager, View.OnScrollChangeListener {
 
-//    var mAdapter: SlideAdapter? = null
-
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context) {
+    }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
-//    fun setAdapter(mAdapter: SlideAdapter){
-//        this.mAdapter = mAdapter
+
+//    override fun onPageScrolled(position: Int, offset: Float, offsetPixels: Int) {
+//        super.onPageScrolled(position, offset, offsetPixels)
+//
+//        val layoutParams = FrameLayout.LayoutParams(
+//                RelativeLayout.LayoutParams.MATCH_PARENT,
+//                RelativeLayout.LayoutParams.WRAP_CONTENT)
+//
+//        layoutParams.width = 500
+//        layoutParams.height = 400
+//
+//        val v = (adapter as SlideAdapter).getItem(position) as Fragment
+//
+//        v.layoutParams = layoutParams
+//
 //    }
 
     override fun onTouchEvent(ev: MotionEvent?): Boolean {
@@ -30,18 +48,9 @@ class VerticalViewPager : ViewPager {
         return super.onTouchEvent(event)
     }
 
-//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        var height = 0
-//        val v = (adapter as SlideAdapter)!!.getCurrentItem()
-//        if (v != null) {
-//            v!!.measure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
-//            height = v!!.getMeasuredHeight()
-//        }
-//
-//       var heightSpec = View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY)
-//
-//
-//        super.onMeasure(widthMeasureSpec, heightSpec)
-//    }
+    private var mCurrentView: View? = null
 
+    override fun onScrollChange(v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
+
+    }
 }
